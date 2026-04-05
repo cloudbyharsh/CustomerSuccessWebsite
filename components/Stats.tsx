@@ -1,101 +1,87 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-interface Stat {
-  value: string
-  numericEnd: number
-  prefix?: string
-  suffix?: string
-  label: string
-  sub: string
-}
-
-const stats: Stat[] = [
-  { value: '0%', numericEnd: 0, suffix: '%', label: 'Logo Churn', sub: '3 consecutive years — zero clients lost' },
-  { value: '6+', numericEnd: 6, suffix: '+', label: 'Years in B2B SaaS', sub: 'Enterprise & mid-market focus' },
-  { value: '$800K+', numericEnd: 800, prefix: '$', suffix: 'K+', label: 'ARR Portfolio', sub: 'Milestone Inc. — managed solo' },
-  { value: '140%', numericEnd: 140, suffix: '%', label: 'Net Revenue Retention', sub: 'Expansion above 100% baseline' },
-  { value: '35%', numericEnd: 35, suffix: '%', label: 'YoY Expansion Revenue', sub: 'Upsell & cross-sell execution' },
-  { value: '200+', numericEnd: 200, suffix: '+', label: 'Accounts Managed', sub: 'Across enterprise & mid-market' },
+const numbers = [
+  { value: '0%', label: 'logo churn', sub: '3 years straight' },
+  { value: '$800K+', label: 'ARR managed', sub: 'solo portfolio' },
+  { value: '140%', label: 'net revenue retention', sub: 'expansion above baseline' },
+  { value: '35%', label: 'expansion YoY', sub: 'upsell & cross-sell' },
+  { value: '200+', label: 'accounts', sub: 'enterprise & mid-market' },
+  { value: '6', label: 'years', sub: 'in B2B SaaS' },
 ]
 
-function Counter({ end, prefix = '', suffix = '', inView }: { end: number; prefix?: string; suffix?: string; inView: boolean }) {
-  const [count, setCount] = useState(0)
-  const rafRef = useRef<number | null>(null)
-
-  useEffect(() => {
-    if (!inView) return
-    const duration = 1400
-    const start = performance.now()
-    const animate = (now: number) => {
-      const t = Math.min((now - start) / duration, 1)
-      const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-      setCount(Math.round(eased * end))
-      if (t < 1) rafRef.current = requestAnimationFrame(animate)
-    }
-    rafRef.current = requestAnimationFrame(animate)
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }
-  }, [inView, end])
-
-  return (
-    <span className="stat-shimmer" style={{ fontSize: 'inherit', fontWeight: 'inherit', letterSpacing: 'inherit' }}>
-      {prefix}{count}{suffix}
-    </span>
-  )
-}
-
 export default function Stats() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [inView, setInView] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect() } }, { threshold: 0.3 })
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [])
-
   return (
-    <section ref={ref} className="py-20 px-6" style={{ background: '#07101a', borderTop: '1px solid #0d1e2e', borderBottom: '1px solid #0d1e2e' }}>
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="px-8 md:px-16 py-24" style={{ background: '#f5f2ee' }}>
+      <div className="max-w-5xl">
 
-        <motion.div
+        {/* Section label */}
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-14"
-          aria-hidden="true"
+          className="text-xs tracking-[0.3em] uppercase mb-12"
+          style={{ color: '#aaa' }}
         >
-          <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#2a4870' }}>Impact</span>
-          <div className="h-px flex-1" style={{ background: '#0d1e2e' }} />
-        </motion.div>
+          By the numbers
+        </motion.p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-px" style={{ background: '#0d1e2e' }}>
-          {stats.map((stat, i) => (
+        {/* Numbers grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+          {numbers.map((n, i) => (
             <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              key={n.label}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 md:p-10 flex flex-col gap-3"
-              style={{ background: '#07101a' }}
+              transition={{ duration: 0.6, delay: i * 0.07 }}
             >
-              <div
-                className="font-black leading-none"
-                style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', letterSpacing: '-0.04em' }}
+              <p
+                className="font-black leading-none mb-2"
+                style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: '#111' }}
               >
-                <Counter end={stat.numericEnd} prefix={stat.prefix} suffix={stat.suffix} inView={inView} />
-              </div>
-              <p className="text-sm font-semibold" style={{ color: '#e4e8ec' }}>{stat.label}</p>
-              <p className="text-xs leading-relaxed" style={{ color: '#6a8aaa' }}>{stat.sub}</p>
+                {n.value}
+              </p>
+              <p className="text-sm font-medium" style={{ color: '#333' }}>{n.label}</p>
+              <p className="text-xs mt-0.5" style={{ color: '#999' }}>{n.sub}</p>
             </motion.div>
           ))}
         </div>
+
+        {/* About blurb */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12"
+          style={{ borderTop: '1px solid #d4cfc9', paddingTop: '3rem' }}
+        >
+          <div>
+            <p className="text-lg leading-relaxed" style={{ color: '#333' }}>
+              I&apos;m a CSM who doesn&apos;t just manage accounts — I{' '}
+              <em>own</em> outcomes. My job is to make sure customers actually
+              get what they paid for, and then some.
+            </p>
+          </div>
+          <div>
+            <p className="text-lg leading-relaxed" style={{ color: '#333' }}>
+              I&apos;ve spent six years translating customer pain into product
+              improvements, running QBRs that move the needle, and building
+              the kind of trust that makes renewals a formality.
+            </p>
+            <a
+              href="/harsh-shah-resume.docx"
+              download="Harsh_Shah_Resume.docx"
+              className="inline-flex items-center gap-2 mt-6 text-sm font-medium link-hover"
+              style={{ color: '#111' }}
+            >
+              Download resume ↓
+            </a>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   )

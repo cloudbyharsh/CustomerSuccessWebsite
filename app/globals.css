@@ -7,44 +7,22 @@ html {
 }
 
 body {
-  background-color: #07101a;
-  color: #e4e8ec;
+  background-color: #f5f2ee;
+  color: #111;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: #e8a84c;
-  color: #07101a;
-}
-
-/* Parallax star animation */
-@keyframes animStar {
-  from { transform: translateY(0px); }
-  to   { transform: translateY(-2000px); }
-}
-
-/* Stat counter shimmer */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.stat-shimmer {
-  background: linear-gradient(90deg, #e8a84c 0%, #f5c97a 40%, #e8a84c 60%, #c47d1a 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s linear infinite;
+  background-color: #111;
+  color: #f5f2ee;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: #07101a; }
-::-webkit-scrollbar-thumb { background: #1a2f45; }
-::-webkit-scrollbar-thumb:hover { background: #2a4560; }
+::-webkit-scrollbar-track { background: #f5f2ee; }
+::-webkit-scrollbar-thumb { background: #ccc; }
 
 /* Hide native cursor */
 @media (pointer: fine) {
@@ -52,24 +30,26 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #e8a84c;
+  outline: 2px solid #111;
   outline-offset: 3px;
 }
 
-/* Underline grow effect */
-.underline-grow {
+/* Hover underline */
+.link-hover {
   position: relative;
+  display: inline-block;
 }
-.underline-grow::after {
+.link-hover::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
   width: 0;
   height: 1px;
-  background: #e8a84c;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #111;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.underline-grow:hover::after {
-  width: 100%;
-}
+.link-hover:hover::after { width: 100%; }
+
+/* Word hover colour */
+.hw-word { transition: color 0.12s ease; }

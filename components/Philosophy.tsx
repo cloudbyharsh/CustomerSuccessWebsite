@@ -4,104 +4,92 @@ import { motion } from 'framer-motion'
 
 const pillars = [
   {
-    number: '01',
+    n: '01',
     title: 'Listen before you solve.',
-    body: 'The best QBR I ever ran wasn\'t the one with the best deck — it was the one where I understood the pressure the VP was under that quarter. Data is secondary. Context is everything.',
-    accent: '#e8a84c',
+    body: 'The best QBR I ever ran wasn\'t the one with the best deck. It was the one where I understood the pressure the VP was under that quarter. Data is secondary. Context is everything.',
   },
   {
-    number: '02',
+    n: '02',
     title: 'Renewals start on day one.',
     body: 'Zero churn isn\'t luck — it\'s a process. I build trust, demonstrate value, and create internal champions from the first onboarding call. By renewal time, the decision is already made.',
-    accent: '#4c8fe8',
   },
   {
-    number: '03',
-    title: 'Customer success is not customer satisfaction.',
-    body: 'A customer can love you and still churn. What matters is whether they hit the outcome they bought the product for. I measure time-to-value, feature adoption tied to goals, and ROI achieved vs. promised.',
-    accent: '#4caf78',
+    n: '03',
+    title: 'Success ≠ satisfaction.',
+    body: 'A customer can genuinely like their CSM, give you a 9 on NPS, and still churn — because the product didn\'t deliver what was promised in the sales call. I measure outcomes, not feelings.',
   },
 ]
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="py-32 md:py-48 px-6" style={{ background: '#070f1a' }}>
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="philosophy"
+      className="px-8 md:px-16 py-24"
+      style={{ background: '#f5f2ee', borderTop: '1px solid #d4cfc9' }}
+    >
+      <div className="max-w-5xl">
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-20"
-          aria-hidden="true"
+          className="text-xs tracking-[0.3em] uppercase mb-12"
+          style={{ color: '#aaa' }}
         >
-          <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#1a3050' }}>04</span>
-          <div className="h-px flex-1" style={{ background: '#0d1e2e' }} />
-          <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#1a3050' }}>Philosophy</span>
-        </motion.div>
+          How I work
+        </motion.p>
 
-        <div className="overflow-hidden mb-16">
+        <div className="overflow-hidden mb-14">
           <motion.h2
-            initial={{ y: '110%', opacity: 0 }}
-            whileInView={{ y: '0%', opacity: 1 }}
+            initial={{ y: '100%' }}
+            whileInView={{ y: '0%' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)', color: '#e4e8ec' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#111' }}
           >
-            How I work.
+            Things I believe.
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="flex flex-col gap-0" style={{ borderTop: '1px solid #d4cfc9' }}>
           {pillars.map((p, i) => (
             <motion.div
-              key={p.number}
-              initial={{ opacity: 0, y: 28 }}
+              key={p.n}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="p-8 md:p-10 flex flex-col gap-5"
-              style={{
-                background: '#0c1825',
-                border: '1px solid #0d1e2e',
-                borderTop: `3px solid ${p.accent}`,
-              }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="py-10 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-12"
+              style={{ borderBottom: '1px solid #d4cfc9' }}
             >
-              <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#1a3050' }}>
-                {p.number}
-              </span>
-              <h3
-                className="font-bold leading-snug"
-                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', color: '#e4e8ec' }}
-              >
-                {p.title}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#6a8aaa' }}>
-                {p.body}
-              </p>
-              <div className="h-px mt-auto" style={{ background: p.accent, opacity: 0.15 }} />
+              <span className="text-xs font-mono" style={{ color: '#bbb' }}>{p.n}</span>
+              <div className="md:col-span-4">
+                <h3 className="font-bold text-xl mb-3" style={{ color: '#111' }}>{p.title}</h3>
+                <p className="text-base leading-relaxed" style={{ color: '#666' }}>{p.body}</p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        {/* LinkedIn quote */}
+        <motion.blockquote
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-12 p-10 text-center"
-          style={{ background: '#0c1825', border: '1px solid #0d1e2e' }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-16 pl-6"
+          style={{ borderLeft: '2px solid #111' }}
         >
-          <p className="font-light leading-relaxed max-w-2xl mx-auto" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: '#7a9ab5', fontStyle: 'italic' }}>
-            &ldquo;The most underrated skill in customer success is not your QBR deck or your health score formula. It is knowing when to put down the agenda and just listen.&rdquo;
+          <p className="text-lg md:text-xl leading-relaxed italic mb-4" style={{ color: '#444' }}>
+            &ldquo;The most underrated skill in customer success is not your QBR deck or your
+            health score formula. It is knowing when to put down the agenda and just listen.&rdquo;
           </p>
-          <p className="text-[10px] tracking-[0.4em] uppercase mt-6" style={{ color: '#1a3050' }}>
+          <cite className="text-sm not-italic" style={{ color: '#aaa' }}>
             — Harsh Shah, LinkedIn
-          </p>
-        </motion.div>
+          </cite>
+        </motion.blockquote>
+
       </div>
     </section>
   )
