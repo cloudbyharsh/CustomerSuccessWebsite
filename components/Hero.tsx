@@ -11,6 +11,31 @@ export default function Hero() {
     >
       {/* Big headline */}
       <div className="max-w-5xl">
+
+        {/* Name + Currently */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 flex flex-col gap-2"
+        >
+          <p
+            className="font-black tracking-tight"
+            style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)', color: '#111' }}
+          >
+            Harsh Shah
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-xs tracking-[0.25em] uppercase" style={{ color: '#aaa' }}>
+              Currently
+            </span>
+            <span className="text-xs" style={{ color: '#555' }}>—</span>
+            <span className="text-xs" style={{ color: '#555' }}>
+              CSM at Milestone Inc. · DPM candidate, George Brown College (2026)
+            </span>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

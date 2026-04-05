@@ -31,7 +31,7 @@ export default function Nav() {
         transition: 'background 0.4s, border-color 0.4s, backdrop-filter 0.4s',
       }}
     >
-      <a href="#" className="text-sm font-semibold tracking-tight" style={{ color: '#111' }}>
+      <a href="#" className="text-base font-bold tracking-tight" style={{ color: '#111' }}>
         Harsh Shah
       </a>
       <nav className="flex items-center gap-8">

@@ -62,6 +62,12 @@ export default function Contact() {
               note: '100% chance I read it',
             },
             {
+              label: 'Phone',
+              value: '+1 416 821 1651',
+              href: 'tel:+14168211651',
+              note: 'call me, maybe',
+            },
+            {
               label: 'LinkedIn',
               value: 'linkedin.com/in/harshashwinshah',
               href: 'https://www.linkedin.com/in/harshashwinshah/',

@@ -49,6 +49,31 @@ export default function Stats() {
           ))}
         </div>
 
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-14"
+          style={{ borderTop: '1px solid #d4cfc9', paddingTop: '2.5rem' }}
+        >
+          <p className="text-xs tracking-[0.3em] uppercase mb-5" style={{ color: '#aaa' }}>
+            Certifications
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {['Microsoft Azure Fundamentals (AZ-900)', 'IBM Product Management Essentials', 'Google Digital Marketing & E-commerce'].map(cert => (
+              <span
+                key={cert}
+                className="text-sm font-medium px-4 py-2"
+                style={{ background: '#edeae5', border: '1px solid #d4cfc9', color: '#444' }}
+              >
+                {cert}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
         {/* About blurb */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
