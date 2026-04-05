@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
-import Cursor from '@/components/Cursor'
+import GhostCursor from '@/components/GhostCursor'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans bg-canvas text-white overflow-x-hidden">
-        <Cursor />
+        <GhostCursor color="#e8a84c" brightness={1.2} trailLength={20} bloomStrength={0.5} />
         <Nav />
         {children}
       </body>

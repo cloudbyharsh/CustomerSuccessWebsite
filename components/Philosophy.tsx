@@ -78,7 +78,7 @@ export default function Philosophy() {
               >
                 {p.title}
               </h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#3a5470' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#6a8aaa' }}>
                 {p.body}
               </p>
               <div className="h-px mt-auto" style={{ background: p.accent, opacity: 0.15 }} />
@@ -95,7 +95,7 @@ export default function Philosophy() {
           className="mt-12 p-10 text-center"
           style={{ background: '#0c1825', border: '1px solid #0d1e2e' }}
         >
-          <p className="font-light leading-relaxed max-w-2xl mx-auto" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: '#4a6a85', fontStyle: 'italic' }}>
+          <p className="font-light leading-relaxed max-w-2xl mx-auto" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: '#7a9ab5', fontStyle: 'italic' }}>
             &ldquo;The most underrated skill in customer success is not your QBR deck or your health score formula. It is knowing when to put down the agenda and just listen.&rdquo;
           </p>
           <p className="text-[10px] tracking-[0.4em] uppercase mt-6" style={{ color: '#1a3050' }}>

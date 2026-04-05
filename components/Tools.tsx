@@ -69,7 +69,7 @@ export default function Tools() {
             >
               <span
                 className="text-[9px] tracking-[0.4em] uppercase font-mono flex-shrink-0 md:w-52"
-                style={{ color: '#2a4060' }}
+                style={{ color: '#5a7a9a' }}
               >
                 {group.category}
               </span>

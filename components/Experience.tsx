@@ -185,13 +185,13 @@ export default function Experience() {
                 style={cardStyle}
               >
                 <div className="mb-6">
-                  <span className="text-[9px] tracking-[0.45em] uppercase font-mono block mb-3" style={{ color: '#2a4060' }}>{job.type}</span>
+                  <span className="text-[9px] tracking-[0.45em] uppercase font-mono block mb-3" style={{ color: '#4a6a8a' }}>{job.type}</span>
                   <h3 className="font-bold text-xl mb-1" style={{ color: '#e4e8ec' }}>{job.role}</h3>
                   <p className="text-sm mb-1" style={{ color: '#e8a84c' }}>{job.company}</p>
-                  <p className="text-xs" style={{ color: '#3a5470' }}>{job.location} · {job.period}</p>
+                  <p className="text-xs" style={{ color: '#6a8aaa' }}>{job.location} · {job.period}</p>
                 </div>
 
-                <p className="text-sm leading-relaxed mb-8" style={{ color: '#5a7a95' }}>
+                <p className="text-sm leading-relaxed mb-8" style={{ color: '#8aaac5' }}>
                   {wordWrap(job.summary)}
                 </p>
 
@@ -199,7 +199,7 @@ export default function Experience() {
                   {job.achievements.map((a, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full" style={{ background: '#e8a84c' }} />
-                      <span className="text-sm leading-relaxed" style={{ color: '#4a6a85' }}>
+                      <span className="text-sm leading-relaxed" style={{ color: '#7a9ab5' }}>
                         {wordWrap(a)}
                       </span>
                     </li>

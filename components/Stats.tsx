@@ -70,7 +70,7 @@ export default function Stats() {
           className="flex items-center gap-4 mb-14"
           aria-hidden="true"
         >
-          <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#1a3050' }}>Impact</span>
+          <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#2a4870' }}>Impact</span>
           <div className="h-px flex-1" style={{ background: '#0d1e2e' }} />
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Stats() {
                 <Counter end={stat.numericEnd} prefix={stat.prefix} suffix={stat.suffix} inView={inView} />
               </div>
               <p className="text-sm font-semibold" style={{ color: '#e4e8ec' }}>{stat.label}</p>
-              <p className="text-xs leading-relaxed" style={{ color: '#3a5470' }}>{stat.sub}</p>
+              <p className="text-xs leading-relaxed" style={{ color: '#6a8aaa' }}>{stat.sub}</p>
             </motion.div>
           ))}
         </div>

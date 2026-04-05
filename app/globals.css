@@ -19,6 +19,12 @@ body {
   color: #07101a;
 }
 
+/* Parallax star animation */
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-2000px); }
+}
+
 /* Stat counter shimmer */
 @keyframes shimmer {
   0% { background-position: -200% center; }

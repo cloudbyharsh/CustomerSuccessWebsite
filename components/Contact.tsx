@@ -67,7 +67,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-base md:text-lg leading-relaxed mb-16 max-w-xl"
-          style={{ color: '#3a5470' }}
+          style={{ color: '#7a9ab5' }}
         >
           Open to Senior CSM, Strategic Customer Success, and Account Management roles in enterprise SaaS.
           Based in Toronto — Canadian Permanent Resident.
@@ -101,7 +101,7 @@ export default function Contact() {
                     el.style.background = '#0c1825'
                   }}
                 >
-                  <span className="text-lg w-8 text-center flex-shrink-0" style={{ color: '#2a4060' }}>{l.icon}</span>
+                  <span className="text-lg w-8 text-center flex-shrink-0" style={{ color: '#4a6a8a' }}>{l.icon}</span>
                   <div>
                     <span className="text-[9px] tracking-[0.4em] uppercase font-mono block mb-1" style={{ color: '#1a3050' }}>{l.label}</span>
                     <span className="text-sm transition-colors duration-300" style={{ color: '#5a7a95' }}>{l.value}</span>
@@ -113,7 +113,7 @@ export default function Contact() {
                   className="flex items-center gap-5 p-6"
                   style={{ background: '#0c1825', border: '1px solid #0d1e2e' }}
                 >
-                  <span className="text-lg w-8 text-center flex-shrink-0" style={{ color: '#2a4060' }}>{l.icon}</span>
+                  <span className="text-lg w-8 text-center flex-shrink-0" style={{ color: '#4a6a8a' }}>{l.icon}</span>
                   <div>
                     <span className="text-[9px] tracking-[0.4em] uppercase font-mono block mb-1" style={{ color: '#1a3050' }}>{l.label}</span>
                     <span className="text-sm" style={{ color: '#5a7a95' }}>{l.value}</span>
@@ -148,7 +148,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center justify-between px-8 py-4 text-[11px] tracking-[0.3em] uppercase transition-colors duration-300"
-            style={{ border: '1px solid #1a2f45', color: '#3a5470' }}
+            style={{ border: '1px solid #1a2f45', color: '#6a8aaa' }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement
               el.style.borderColor = '#e8a84c'
@@ -157,7 +157,7 @@ export default function Contact() {
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLElement
               el.style.borderColor = '#1a2f45'
-              el.style.color = '#3a5470'
+              el.style.color = '#6a8aaa'
             }}
           >
             <span>Connect on LinkedIn</span>

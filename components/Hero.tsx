@@ -3,41 +3,44 @@
 import { CSSProperties, useMemo } from 'react'
 import { motion } from 'framer-motion'
 
-/* ─── Floating Grid Dots ─────────────────────────────────────────────── */
-function GridDots() {
-  const dots = useMemo(() => {
-    const arr = []
-    for (let i = 0; i < 80; i++) {
-      arr.push({
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() > 0.85 ? 2 : 1,
-        opacity: 0.08 + Math.random() * 0.18,
-        delay: Math.random() * 4,
-        dur: 3 + Math.random() * 4,
-      })
+/* ─── Parallax Stars ─────────────────────────────────────────────────── */
+function Stars() {
+  const sm = useMemo(() => genShadows(700), [])
+  const md = useMemo(() => genShadows(200), [])
+  const lg = useMemo(() => genShadows(100), [])
+
+  function genShadows(n: number) {
+    const parts: string[] = []
+    for (let i = 0; i < n; i++) {
+      const x = Math.floor(Math.random() * 2000)
+      const y = Math.floor(Math.random() * 2000)
+      parts.push(`${x}px ${y}px #fff`)
     }
-    return arr
-  }, [])
+    return parts.join(', ')
+  }
+
+  const layer = (size: number, shadows: string, dur: number): CSSProperties => ({
+    position: 'absolute',
+    left: 0, top: 0,
+    width: `${size}px`, height: `${size}px`,
+    background: 'transparent',
+    boxShadow: shadows,
+    animation: `animStar ${dur}s linear infinite`,
+    zIndex: 1,
+    opacity: 0.7,
+  })
 
   return (
-    <div aria-hidden="true" className="absolute inset-0 overflow-hidden pointer-events-none">
-      {dots.map((d, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            left: `${d.x}%`,
-            top: `${d.y}%`,
-            width: d.size,
-            height: d.size,
-            background: '#e8a84c',
-            opacity: d.opacity,
-          }}
-          animate={{ opacity: [d.opacity, d.opacity * 3, d.opacity] }}
-          transition={{ duration: d.dur, delay: d.delay, repeat: Infinity, ease: 'easeInOut' }}
-        />
-      ))}
+    <div aria-hidden="true">
+      <div style={layer(1, sm, 60)}>
+        <div style={{ position: 'absolute', top: '2000px', width: '1px', height: '1px', background: 'transparent', boxShadow: sm }} />
+      </div>
+      <div style={layer(2, md, 120)}>
+        <div style={{ position: 'absolute', top: '2000px', width: '2px', height: '2px', background: 'transparent', boxShadow: md }} />
+      </div>
+      <div style={layer(3, lg, 180)}>
+        <div style={{ position: 'absolute', top: '2000px', width: '3px', height: '3px', background: 'transparent', boxShadow: lg }} />
+      </div>
     </div>
   )
 }
@@ -49,7 +52,7 @@ function CharReveal({
   text: string; delay?: number; style?: CSSProperties
 }) {
   return (
-    <span className="inline-flex flex-wrap" aria-label={text}>
+    <span className="inline-flex" aria-label={text}>
       {text.split('').map((ch, i) => (
         <span key={i} className="inline-block overflow-hidden" aria-hidden="true">
           <motion.span
@@ -74,51 +77,91 @@ export default function Hero() {
       id="hero"
       aria-label="Introduction"
       className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden px-6"
-      style={{ background: 'radial-gradient(ellipse 120% 80% at 50% 110%, #0d2040 0%, #07101a 55%)' }}
+      style={{ background: 'radial-gradient(ellipse at bottom, #0a1a35 0%, #07101a 65%)' }}
     >
-      <GridDots />
+      {/* Parallax stars */}
+      <div className="absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+        <Stars />
+      </div>
 
-      {/* Top vignette */}
+      {/* Radial vignette overlay */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 100% 60% at 50% 0%, #07101a 0%, transparent 100%)',
-          zIndex: 1,
+          background: 'radial-gradient(ellipse 80% 65% at 50% 50%, transparent 30%, #07101a 100%)',
+          zIndex: 2,
         }}
       />
 
       {/* Content */}
-      <div className="relative text-center max-w-5xl mx-auto" style={{ zIndex: 2 }}>
+      <div className="relative text-center max-w-5xl mx-auto w-full" style={{ zIndex: 3 }}>
 
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex items-center justify-center gap-3 mb-10"
+          className="flex items-center justify-center gap-4 mb-6"
         >
-          <div className="h-px w-12" style={{ background: '#1a3050' }} />
+          <div className="h-px w-16 hidden sm:block" style={{ background: 'linear-gradient(to right, transparent, #2a4060)' }} />
           <span className="text-[10px] tracking-[0.55em] uppercase font-mono" style={{ color: '#e8a84c' }}>
             Customer Success Manager
           </span>
-          <div className="h-px w-12" style={{ background: '#1a3050' }} />
+          <div className="h-px w-16 hidden sm:block" style={{ background: 'linear-gradient(to left, transparent, #2a4060)' }} />
         </motion.div>
 
-        {/* Main headline */}
-        <h1 aria-label="The CSM who never lost a client." className="select-none leading-none mb-8">
-          <div className="block" style={{ fontSize: 'clamp(3.2rem, 10vw, 9.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: '0.88', color: '#e4e8ec' }}>
-            <CharReveal text="THE CSM" delay={0.25} />
+        {/* Name — centered above headline */}
+        <div className="overflow-hidden mb-8">
+          <motion.p
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="uppercase font-black tracking-[0.25em] text-center"
+            style={{ fontSize: 'clamp(1.1rem, 2.8vw, 2.2rem)', color: '#c8d8e8', letterSpacing: '0.28em' }}
+          >
+            Harsh Shah
+          </motion.p>
+        </div>
+
+        {/* Main headline — 3 lines */}
+        <h1 aria-label="The CSM who never lost a client." className="select-none leading-none mb-10">
+
+          {/* THE CSM */}
+          <div
+            className="block"
+            style={{ fontSize: 'clamp(2.8rem, 8.5vw, 8rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: '0.9', color: '#e4e8ec' }}
+          >
+            <CharReveal text="THE CSM" delay={0.3} />
           </div>
-          <div className="block" style={{ fontSize: 'clamp(3.2rem, 10vw, 9.5rem)', fontWeight: 900, letterSpacing: '-0.045em', lineHeight: '0.88' }}>
+
+          {/* WHO NEVER — outlined */}
+          <div
+            className="block"
+            aria-hidden="true"
+            style={{ fontSize: 'clamp(3.8rem, 12vw, 11rem)', fontWeight: 900, letterSpacing: '-0.045em', lineHeight: '0.88' }}
+          >
             <CharReveal
               text="WHO NEVER"
-              delay={0.5}
-              style={{ WebkitTextStroke: '1.5px #e4e8ec', color: 'transparent' }}
+              delay={0.55}
+              style={{ WebkitTextStroke: '1.5px #9ab4cc', color: 'transparent' }}
             />
           </div>
-          <div className="block" style={{ fontSize: 'clamp(3.2rem, 10vw, 9.5rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: '0.88', color: '#e8a84c' }}>
-            <CharReveal text="LOST A CLIENT." delay={0.78} />
+
+          {/* LOST A CLIENT. — amber, sized to fit one line */}
+          <div
+            className="block"
+            aria-hidden="true"
+            style={{
+              fontSize: 'clamp(2rem, 6.2vw, 6rem)',
+              fontWeight: 900,
+              letterSpacing: '-0.03em',
+              lineHeight: '1',
+              color: '#e8a84c',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <CharReveal text="LOST A CLIENT." delay={0.85} />
           </div>
         </h1>
 
@@ -126,19 +169,19 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed"
-          style={{ color: '#5a7a95' }}
+          transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-sm md:text-base max-w-xl mx-auto mb-12 leading-relaxed"
+          style={{ color: '#7a9ab8' }}
         >
           6 years · 200+ enterprise accounts · $800K+ portfolio ·{' '}
-          <span style={{ color: '#e8a84c' }}>0% logo churn for 3 consecutive years</span>
+          <span style={{ color: '#e8a84c', fontWeight: 600 }}>0% logo churn for 3 consecutive years</span>
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
@@ -155,16 +198,14 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3.5 text-[11px] tracking-[0.3em] uppercase transition-all duration-300"
-            style={{ border: '1px solid #1a3050', color: '#5a7a95' }}
+            style={{ border: '1px solid #2a4060', color: '#7a9ab8' }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement
-              el.style.borderColor = '#e8a84c'
-              el.style.color = '#e8a84c'
+              el.style.borderColor = '#e8a84c'; el.style.color = '#e8a84c'
             }}
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLElement
-              el.style.borderColor = '#1a3050'
-              el.style.color = '#5a7a95'
+              el.style.borderColor = '#2a4060'; el.style.color = '#7a9ab8'
             }}
           >
             LinkedIn Profile →
@@ -176,11 +217,11 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.4 }}
+        transition={{ delay: 2.5 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ zIndex: 2 }}
+        style={{ zIndex: 3 }}
       >
-        <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#253d52' }}>Scroll</span>
+        <span className="text-[9px] tracking-[0.5em] uppercase font-mono" style={{ color: '#3a5a78' }}>Scroll</span>
         <motion.div
           className="w-px h-8"
           style={{ background: 'linear-gradient(to bottom, #e8a84c, transparent)' }}

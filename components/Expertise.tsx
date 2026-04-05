@@ -130,7 +130,7 @@ export default function Expertise() {
                   {c.title}
                 </h3>
               </div>
-              <p className="text-xs leading-relaxed" style={{ color: '#3a5470' }}>
+              <p className="text-xs leading-relaxed" style={{ color: '#6a8aaa' }}>
                 {c.desc}
               </p>
             </motion.div>
