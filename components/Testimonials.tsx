@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const testimonials = [
   {
     quote:
-      'Harsh maintains a pristine retention record and has demonstrated a rare ability to turn clients into genuine advocates. He is also a forerunner when it comes to embracing AI — he actively looks for ways to work smarter and shares that with the whole team. He would be an asset to any organisation serious about customer success.',
+      'Harsh maintains a pristine retention record and has demonstrated a rare ability to turn clients into genuine advocates. He is also a forerunner when it comes to embracing AI. He actively looks for ways to work smarter and shares that with the whole team. He would be an asset to any organisation serious about customer success.',
     name: 'Janet Seet Ling Low',
     title: 'Client Success Leader',
     relationship: 'Managed Harsh directly',
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     quote:
-      'What sets Harsh apart is the combination of dedication and tenacity he brings every single day. He does not just do his job — he trains the team around him, raises the bar, and makes sure both colleagues and clients always feel looked after. The clients love him, and so does everyone who works with him.',
+      'What sets Harsh apart is the combination of dedication and tenacity he brings every single day. He does not just do his job. He trains the team around him, raises the bar, and makes sure both colleagues and clients always feel looked after. The clients love him, and so does everyone who works with him.',
     name: 'Brittany Parsons',
     title: 'Customer Success Leader',
     relationship: 'Managed Harsh directly',
@@ -32,8 +32,10 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
+      id="testimonials"
+      data-section="testimonials"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#111', borderTop: '1px solid #1a1a1a' }}
+      style={{ borderTop: '1px solid #1a1a1a' }}
     >
       <div className="max-w-5xl">
 

@@ -1,22 +1,72 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
-const numbers = [
-  { value: '0%', label: 'logo churn', sub: '3 years straight' },
-  { value: '$800K+', label: 'ARR managed', sub: 'solo portfolio' },
-  { value: '140%', label: 'net revenue retention', sub: 'expansion above baseline' },
-  { value: '35%', label: 'expansion YoY', sub: 'upsell & cross-sell' },
-  { value: '200+', label: 'accounts', sub: 'enterprise & mid-market' },
-  { value: '6', label: 'years', sub: 'in B2B SaaS' },
+interface Stat {
+  label: string
+  sub: string
+  target?: number
+  display: (n: number) => string
+}
+
+const stats: Stat[] = [
+  { label: 'logo churn', sub: '3 years straight', display: () => '0%' },
+  { label: 'ARR managed', sub: 'solo portfolio', target: 800, display: n => `$${n}K+` },
+  { label: 'net revenue retention', sub: 'expansion above baseline', target: 140, display: n => `${n}%` },
+  { label: 'expansion YoY', sub: 'upsell and cross-sell', target: 35, display: n => `${n}%` },
+  { label: 'accounts', sub: 'enterprise and mid-market', target: 200, display: n => `${n}+` },
+  { label: 'years', sub: 'in B2B SaaS', target: 6, display: n => `${n}` },
 ]
 
 export default function Stats() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [counts, setCounts] = useState<number[]>(stats.map(() => 0))
+  const hasRun = useRef(false)
+
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || hasRun.current) return
+      hasRun.current = true
+      observer.disconnect()
+
+      stats.forEach((stat, i) => {
+        if (!stat.target) return
+        const duration = 1600
+        const start = performance.now()
+        const target = stat.target
+
+        const run = (now: number) => {
+          const p = Math.min((now - start) / duration, 1)
+          const eased = 1 - Math.pow(1 - p, 3)
+          setCounts(prev => {
+            const next = [...prev]
+            next[i] = Math.round(target * eased)
+            return next
+          })
+          if (p < 1) requestAnimationFrame(run)
+        }
+
+        setTimeout(() => requestAnimationFrame(run), i * 110)
+      })
+    }, { threshold: 0.25 })
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="about" className="px-8 md:px-16 py-24" style={{ background: '#f5f2ee' }}>
+    <section
+      ref={sectionRef}
+      id="about"
+      data-section="about"
+      className="px-8 md:px-16 py-24"
+    >
       <div className="max-w-5xl">
 
-        {/* Section label */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -27,24 +77,23 @@ export default function Stats() {
           By the numbers
         </motion.p>
 
-        {/* Numbers grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
-          {numbers.map((n, i) => (
+          {stats.map((stat, i) => (
             <motion.div
-              key={n.label}
+              key={stat.label}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.07 }}
             >
               <p
-                className="font-black leading-none mb-2"
+                className="font-black leading-none mb-2 tabular-nums"
                 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: '#111' }}
               >
-                {n.value}
+                {stat.display(counts[i])}
               </p>
-              <p className="text-sm font-medium" style={{ color: '#333' }}>{n.label}</p>
-              <p className="text-xs mt-0.5" style={{ color: '#999' }}>{n.sub}</p>
+              <p className="text-sm font-medium" style={{ color: '#333' }}>{stat.label}</p>
+              <p className="text-xs mt-0.5" style={{ color: '#999' }}>{stat.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -62,7 +111,12 @@ export default function Stats() {
             Certifications
           </p>
           <div className="flex flex-wrap gap-3">
-            {['Microsoft Azure Fundamentals (AZ-900)', 'IBM Product Management Essentials', 'Customer Engagement & CX Foundations', 'Google Ads & Digital Marketing Strategy'].map(cert => (
+            {[
+              'Microsoft Azure Fundamentals (AZ-900)',
+              'IBM Product Management Essentials',
+              'Customer Engagement and CX Foundations',
+              'Google Ads and Digital Marketing Strategy',
+            ].map(cert => (
               <span
                 key={cert}
                 className="text-sm font-medium px-4 py-2"
@@ -85,7 +139,7 @@ export default function Stats() {
         >
           <div>
             <p className="text-lg leading-relaxed" style={{ color: '#333' }}>
-              I&apos;m a CSM who doesn&apos;t just manage accounts — I{' '}
+              I&apos;m a CSM who doesn&apos;t just manage accounts. I{' '}
               <em>own</em> outcomes. My job is to make sure customers actually
               get what they paid for, and then some.
             </p>

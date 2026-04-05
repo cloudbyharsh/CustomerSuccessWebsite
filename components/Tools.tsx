@@ -15,8 +15,10 @@ const companies = ['Milestone Inc.', 'VOIS / Vodafone', 'ADIT Tech', 'George Bro
 export default function Tools() {
   return (
     <section
+      id="tools"
+      data-section="tools"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#edeae5', borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid #d4cfc9' }}
     >
       <div className="max-w-5xl">
 

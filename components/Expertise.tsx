@@ -21,7 +21,7 @@ const skills = [
   },
   {
     label: 'Churn prevention',
-    desc: 'I read the signals early — usage drops, stakeholder changes, NPS dips. Then I act before the customer even thinks about churning.',
+    desc: 'I read the signals early: usage drops, stakeholder changes, NPS dips. Then I act before the customer even thinks about churning.',
   },
   {
     label: 'Voice of Customer',
@@ -41,8 +41,9 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
+      data-section="expertise"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#f5f2ee', borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid #d4cfc9' }}
     >
       <div className="max-w-5xl">
 

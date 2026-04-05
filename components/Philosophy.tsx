@@ -11,12 +11,12 @@ const pillars = [
   {
     n: '02',
     title: 'Renewals start on day one.',
-    body: 'Zero churn isn\'t luck — it\'s a process. I build trust, demonstrate value, and create internal champions from the first onboarding call. By renewal time, the decision is already made.',
+    body: 'Zero churn isn\'t luck. It\'s a process. I build trust, demonstrate value, and create internal champions from the first onboarding call. By renewal time, the decision is already made.',
   },
   {
     n: '03',
     title: 'Success ≠ satisfaction.',
-    body: 'A customer can genuinely like their CSM, give you a 9 on NPS, and still churn — because the product didn\'t deliver what was promised in the sales call. I measure outcomes, not feelings.',
+    body: 'A customer can genuinely like their CSM, give you a 9 on NPS, and still churn. Because the product didn\'t deliver what was promised in the sales call. I measure outcomes, not feelings.',
   },
 ]
 
@@ -24,8 +24,9 @@ export default function Philosophy() {
   return (
     <section
       id="philosophy"
+      data-section="philosophy"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#f5f2ee', borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid #d4cfc9' }}
     >
       <div className="max-w-5xl">
 

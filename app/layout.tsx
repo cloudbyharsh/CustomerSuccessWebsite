@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Cursor from '@/components/GhostCursor'
+import ScrollColor from '@/components/ScrollColor'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <body className="font-sans overflow-x-hidden">
         <Cursor />
+        <ScrollColor />
         <Nav />
         {children}
       </body>

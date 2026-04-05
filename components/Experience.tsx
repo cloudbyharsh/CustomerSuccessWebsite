@@ -33,7 +33,7 @@ const jobs = [
     role: 'Senior Executive, Customer Operations',
     company: 'VOIS (Vodafone Group)',
     location: 'Ahmedabad, India',
-    desc: 'Enterprise support across regulated European markets. Top performer for 8 consecutive quarters. This is where I learned that enterprise clients aren\'t difficult — they just have higher stakes.',
+    desc: 'Enterprise support across regulated European markets. Top performer for 8 consecutive quarters. Enterprise clients aren\'t difficult. They just have higher stakes.',
     highlights: ['Top performer — 8 consecutive quarters', 'European enterprise markets', 'Foundation of consultative communication'],
   },
 ]
@@ -44,8 +44,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
+      data-section="experience"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#edeae5', borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid #d4cfc9' }}
     >
       <div className="max-w-5xl">
 

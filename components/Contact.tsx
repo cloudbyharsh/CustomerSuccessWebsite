@@ -6,8 +6,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      data-section="contact"
       className="px-8 md:px-16 py-24"
-      style={{ background: '#111', borderTop: '1px solid #222' }}
+      style={{ borderTop: '1px solid #222' }}
     >
       <div className="max-w-5xl">
 

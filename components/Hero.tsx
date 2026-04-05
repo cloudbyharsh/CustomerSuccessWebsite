@@ -6,8 +6,8 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      data-section="hero"
       className="min-h-screen flex flex-col justify-end px-8 md:px-16 pb-20 pt-32"
-      style={{ background: '#f5f2ee' }}
     >
       {/* Big headline */}
       <div className="max-w-5xl">
@@ -29,7 +29,6 @@ export default function Hero() {
             <span className="text-xs tracking-[0.25em] uppercase" style={{ color: '#aaa' }}>
               Currently
             </span>
-            <span className="text-xs" style={{ color: '#555' }}>—</span>
             <span className="text-xs" style={{ color: '#555' }}>
               CSM at Milestone Inc. · DPM candidate, George Brown College (2026)
             </span>
