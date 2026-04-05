@@ -62,7 +62,7 @@ export default function Stats() {
             Certifications
           </p>
           <div className="flex flex-wrap gap-3">
-            {['Microsoft Azure Fundamentals (AZ-900)', 'IBM Product Management Essentials', 'Google Digital Marketing & E-commerce'].map(cert => (
+            {['Microsoft Azure Fundamentals (AZ-900)', 'IBM Product Management Essentials', 'Customer Engagement & CX Foundations', 'Google Ads & Digital Marketing Strategy'].map(cert => (
               <span
                 key={cert}
                 className="text-sm font-medium px-4 py-2"
@@ -97,8 +97,8 @@ export default function Stats() {
               the kind of trust that makes renewals a formality.
             </p>
             <a
-              href="/harsh-shah-resume.docx"
-              download="Harsh_Shah_Resume.docx"
+              href="/harsh-shah-resume.pdf"
+              download="Harsh_Shah_Resume.pdf"
               className="inline-flex items-center gap-2 mt-6 text-sm font-medium link-hover"
               style={{ color: '#111' }}
             >

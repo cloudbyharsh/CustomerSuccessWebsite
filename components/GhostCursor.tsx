@@ -52,14 +52,14 @@ export default function Cursor() {
       <motion.div
         aria-hidden="true"
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
-        style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%', border: '1.5px solid #111' }}
-        animate={{ width: clicking ? 20 : hovering ? 44 : 32, height: clicking ? 20 : hovering ? 44 : 32, opacity: visible ? 0.7 : 0 }}
+        style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%', border: '1.5px solid #fff', mixBlendMode: 'difference' }}
+        animate={{ width: clicking ? 20 : hovering ? 44 : 32, height: clicking ? 20 : hovering ? 44 : 32, opacity: visible ? 1 : 0 }}
         transition={{ width: { duration: 0.2 }, height: { duration: 0.2 }, opacity: { duration: 0.25 } }}
       />
       <motion.div
         aria-hidden="true"
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] bg-[#111]"
-        style={{ x: dotX, y: dotY, translateX: '-50%', translateY: '-50%' }}
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] bg-white"
+        style={{ x: dotX, y: dotY, translateX: '-50%', translateY: '-50%', mixBlendMode: 'difference' }}
         animate={{ width: hovering ? 0 : clicking ? 3 : 5, height: hovering ? 0 : clicking ? 3 : 5, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.12 }}
       />

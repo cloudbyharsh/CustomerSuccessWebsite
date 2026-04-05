@@ -120,8 +120,8 @@ export default function Contact() {
           className="mt-12"
         >
           <a
-            href="/harsh-shah-resume.docx"
-            download="Harsh_Shah_Resume.docx"
+            href="/harsh-shah-resume.pdf"
+            download="Harsh_Shah_Resume.pdf"
             className="inline-flex items-center gap-3 px-6 py-3 text-sm font-medium transition-all duration-200"
             style={{ background: '#f5f2ee', color: '#111' }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#fff')}
