@@ -27,7 +27,7 @@ export default function Cursor() {
         prevWordRef.current.style.color = ''; prevWordRef.current = null
       }
       if (t.classList.contains('hw-word') && t !== prevWordRef.current) {
-        const el = t as HTMLElement; el.style.color = '#c8860a'; prevWordRef.current = el
+        const el = t as HTMLElement; el.style.color = '#29d4ff'; prevWordRef.current = el
       }
     }
     const onLeave = () => { setVisible(false); if (prevWordRef.current) { prevWordRef.current.style.color = ''; prevWordRef.current = null } }

@@ -46,7 +46,7 @@ export default function Experience() {
       id="experience"
       data-section="experience"
       className="px-8 md:px-16 py-24"
-      style={{ borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <div className="max-w-5xl">
 
@@ -55,7 +55,7 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#aaa' }}
+          style={{ color: '#4c566a' }}
         >
           Work
         </motion.p>
@@ -67,30 +67,32 @@ export default function Experience() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#111' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f0eeff' }}
           >
             6 years of results.
           </motion.h2>
         </div>
 
-        {/* Timeline */}
         <div className="flex flex-col md:flex-row gap-0">
 
           {/* Left — year tabs */}
-          <div className="flex md:flex-col gap-0 md:w-28 flex-shrink-0 border-b md:border-b-0 md:border-r mb-8 md:mb-0" style={{ borderColor: '#d4cfc9' }}>
+          <div
+            className="flex md:flex-col gap-0 md:w-28 flex-shrink-0 border-b md:border-b-0 md:border-r mb-8 md:mb-0"
+            style={{ borderColor: 'rgba(255,255,255,0.07)' }}
+          >
             {jobs.map((j, i) => (
               <button
                 key={j.year}
                 onClick={() => setActive(i)}
                 className="text-left py-3 pr-6 transition-all duration-200"
                 style={{
-                  borderRight: active === i ? '2px solid #111' : '2px solid transparent',
+                  borderRight: active === i ? '2px solid #29d4ff' : '2px solid transparent',
                   marginRight: '-1px',
                 }}
               >
                 <span
                   className="font-black text-lg"
-                  style={{ color: active === i ? '#111' : '#bbb' }}
+                  style={{ color: active === i ? '#29d4ff' : '#4c566a' }}
                 >
                   {j.year}
                 </span>
@@ -108,22 +110,22 @@ export default function Experience() {
                 exit={{ opacity: 0, x: -8 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#aaa' }}>
+                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#4c566a' }}>
                   {jobs[active].location}
                 </p>
-                <h3 className="font-bold text-2xl mb-1" style={{ color: '#111' }}>
+                <h3 className="font-bold text-2xl mb-1" style={{ color: '#f0eeff' }}>
                   {jobs[active].role}
                 </h3>
-                <p className="font-medium mb-6" style={{ color: '#888' }}>
+                <p className="font-medium mb-6" style={{ color: '#6e7a8a' }}>
                   {jobs[active].company}
                 </p>
-                <p className="text-base leading-relaxed mb-8" style={{ color: '#444' }}>
+                <p className="text-base leading-relaxed mb-8" style={{ color: '#9aa3b8' }}>
                   {jobs[active].desc}
                 </p>
                 <ul className="flex flex-col gap-2">
                   {jobs[active].highlights.map((h, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: '#555' }}>
-                      <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#111' }} />
+                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: '#6e7a8a' }}>
+                      <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#29d4ff' }} />
                       {h}
                     </li>
                   ))}

@@ -18,7 +18,7 @@ export default function Tools() {
       id="tools"
       data-section="tools"
       className="px-8 md:px-16 py-24"
-      style={{ borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <div className="max-w-5xl">
 
@@ -27,7 +27,7 @@ export default function Tools() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#aaa' }}
+          style={{ color: '#4c566a' }}
         >
           Stack
         </motion.p>
@@ -39,13 +39,13 @@ export default function Tools() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#111' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f0eeff' }}
           >
             Tools I actually use.
           </motion.h2>
         </div>
 
-        <div className="flex flex-col gap-0" style={{ borderTop: '1px solid #d4cfc9' }}>
+        <div className="flex flex-col gap-0" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
           {stack.map((s, i) => (
             <motion.div
               key={s.cat}
@@ -54,12 +54,12 @@ export default function Tools() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
               className="flex flex-col md:flex-row py-5 gap-2 md:gap-0"
-              style={{ borderBottom: '1px solid #d4cfc9' }}
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
             >
-              <span className="text-xs uppercase tracking-widest font-medium md:w-36 flex-shrink-0 pt-0.5" style={{ color: '#aaa' }}>
+              <span className="text-xs uppercase tracking-widest font-medium md:w-36 flex-shrink-0 pt-0.5" style={{ color: '#29d4ff' }}>
                 {s.cat}
               </span>
-              <span className="text-base" style={{ color: '#444' }}>{s.tools}</span>
+              <span className="text-base" style={{ color: '#9aa3b8' }}>{s.tools}</span>
             </motion.div>
           ))}
         </div>
@@ -72,13 +72,17 @@ export default function Tools() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ color: '#aaa' }}>Where I&apos;ve worked</p>
+          <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ color: '#4c566a' }}>Where I&apos;ve worked</p>
           <div className="flex flex-wrap gap-4">
             {companies.map(c => (
               <span
                 key={c}
                 className="text-sm font-medium px-4 py-2"
-                style={{ background: '#f5f2ee', border: '1px solid #d4cfc9', color: '#555' }}
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(41,212,255,0.15)',
+                  color: '#9aa3b8',
+                }}
               >
                 {c}
               </span>

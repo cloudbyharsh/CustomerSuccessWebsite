@@ -35,7 +35,7 @@ export default function Testimonials() {
       id="testimonials"
       data-section="testimonials"
       className="px-8 md:px-16 py-24"
-      style={{ borderTop: '1px solid #1a1a1a' }}
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <div className="max-w-5xl">
 
@@ -44,7 +44,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#444' }}
+          style={{ color: '#4c566a' }}
         >
           What managers say
         </motion.p>
@@ -56,13 +56,13 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f5f2ee' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f0eeff' }}
           >
             People I&apos;ve worked for.
           </motion.h2>
         </div>
 
-        <div className="flex flex-col gap-0" style={{ borderTop: '1px solid #222' }}>
+        <div className="flex flex-col gap-0" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
@@ -71,21 +71,19 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="py-12 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-12"
-              style={{ borderBottom: '1px solid #222' }}
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
             >
-              {/* Left — attribution */}
               <div className="md:col-span-1 flex flex-col gap-1">
-                <p className="text-sm font-bold" style={{ color: '#f5f2ee' }}>{t.name}</p>
-                <p className="text-xs leading-snug" style={{ color: '#555' }}>{t.title}</p>
-                <p className="text-xs mt-2" style={{ color: '#3a3a3a' }}>{t.relationship}</p>
-                <p className="text-xs" style={{ color: '#3a3a3a' }}>{t.date}</p>
+                <p className="text-sm font-bold" style={{ color: '#f0eeff' }}>{t.name}</p>
+                <p className="text-xs leading-snug" style={{ color: '#6e7a8a' }}>{t.title}</p>
+                <p className="text-xs mt-2" style={{ color: '#4c566a' }}>{t.relationship}</p>
+                <p className="text-xs" style={{ color: '#4c566a' }}>{t.date}</p>
               </div>
 
-              {/* Right — quote */}
               <div className="md:col-span-4">
                 <p
                   className="text-lg md:text-xl leading-relaxed"
-                  style={{ color: '#888', fontStyle: 'italic' }}
+                  style={{ color: '#9aa3b8', fontStyle: 'italic' }}
                 >
                   &ldquo;{t.quote}&rdquo;
                 </p>
@@ -100,7 +98,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-10 text-xs"
-          style={{ color: '#333' }}
+          style={{ color: '#4c566a' }}
         >
           All recommendations verified on{' '}
           <a
@@ -108,7 +106,7 @@ export default function Testimonials() {
             target="_blank"
             rel="noopener noreferrer"
             className="link-hover"
-            style={{ color: '#555' }}
+            style={{ color: '#6e7a8a' }}
           >
             LinkedIn ↗
           </a>

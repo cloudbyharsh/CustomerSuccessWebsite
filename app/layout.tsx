@@ -1,13 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Syne, Syne_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Cursor from '@/components/GhostCursor'
 import ScrollColor from '@/components/ScrollColor'
+import ParticleBackground from '@/components/ParticleBackground'
 
-const inter = Inter({
+const syne = Syne({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-syne',
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+})
+
+const syneMono = Syne_Mono({
+  subsets: ['latin'],
+  variable: '--font-syne-mono',
+  weight: '400',
   display: 'swap',
 })
 
@@ -26,8 +35,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${syne.variable} ${syneMono.variable}`}>
       <body className="font-sans overflow-x-hidden">
+        <ParticleBackground />
         <Cursor />
         <ScrollColor />
         <Nav />

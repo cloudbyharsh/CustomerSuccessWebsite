@@ -1,3 +1,4 @@
+import SplineIntro from '@/components/SplineIntro'
 import Hero from '@/components/Hero'
 import Stats from '@/components/Stats'
 import Experience from '@/components/Experience'
@@ -9,15 +10,18 @@ import Contact from '@/components/Contact'
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Stats />
-      <Experience />
-      <Expertise />
-      <Tools />
-      <Philosophy />
-      <Testimonials />
-      <Contact />
-    </main>
+    <>
+      <SplineIntro />
+      <main className="relative z-10">
+        <Hero />
+        <Stats />
+        <Experience />
+        <Expertise />
+        <Tools />
+        <Philosophy />
+        <Testimonials />
+        <Contact />
+      </main>
+    </>
   )
 }

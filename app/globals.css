@@ -7,23 +7,23 @@ html {
 }
 
 body {
-  background-color: #f5f2ee;
+  background-color: #000000;
   transition: background-color 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  color: #111;
+  color: #f0eeff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background-color: #111;
-  color: #f5f2ee;
+  background-color: #29d4ff;
+  color: #000000;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: #f5f2ee; }
-::-webkit-scrollbar-thumb { background: #ccc; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: rgba(41, 212, 255, 0.35); }
 
 /* Hide native cursor */
 @media (pointer: fine) {
@@ -31,7 +31,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #111;
+  outline: 2px solid #29d4ff;
   outline-offset: 3px;
 }
 
@@ -54,3 +54,12 @@ body {
 
 /* Word hover colour */
 .hw-word { transition: color 0.12s ease; }
+
+/* Syne Mono on all display headings and mono labels */
+h1, h2, h3 {
+  font-family: var(--font-syne-mono), monospace;
+}
+
+.font-mono, .tabular-nums {
+  font-family: var(--font-syne-mono), monospace;
+}

@@ -3,14 +3,14 @@
 import { useEffect } from 'react'
 
 const colors: Record<string, string> = {
-  hero:         '#f5f2ee',
-  about:        '#f5f2ee',
-  experience:   '#edeae5',
-  expertise:    '#f5f2ee',
-  tools:        '#edeae5',
-  philosophy:   '#f5f2ee',
-  testimonials: '#111111',
-  contact:      '#111111',
+  hero:         '#000000',
+  about:        '#000000',
+  experience:   '#000000',
+  expertise:    '#000000',
+  tools:        '#000000',
+  philosophy:   '#000000',
+  testimonials: '#000000',
+  contact:      '#000000',
 }
 
 export default function ScrollColor() {

@@ -43,7 +43,7 @@ export default function Expertise() {
       id="expertise"
       data-section="expertise"
       className="px-8 md:px-16 py-24"
-      style={{ borderTop: '1px solid #d4cfc9' }}
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <div className="max-w-5xl">
 
@@ -52,7 +52,7 @@ export default function Expertise() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#aaa' }}
+          style={{ color: '#4c566a' }}
         >
           What I do
         </motion.p>
@@ -64,13 +64,13 @@ export default function Expertise() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#111' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f0eeff' }}
           >
             Selectively very good.
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0" style={{ borderTop: '1px solid #d4cfc9' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
           {skills.map((s, i) => (
             <motion.div
               key={s.label}
@@ -80,17 +80,17 @@ export default function Expertise() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="py-8 pr-8 group"
               style={{
-                borderBottom: '1px solid #d4cfc9',
-                borderRight: i % 2 === 0 ? '1px solid #d4cfc9' : 'none',
+                borderBottom: '1px solid rgba(255,255,255,0.07)',
+                borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.07)' : 'none',
               }}
             >
               <p
-                className="font-bold text-base mb-2 transition-colors duration-200"
-                style={{ color: '#111' }}
+                className="font-bold text-base mb-2 transition-colors duration-200 group-hover:text-[#29d4ff]"
+                style={{ color: '#f0eeff' }}
               >
                 {s.label}
               </p>
-              <p className="text-sm leading-relaxed" style={{ color: '#777' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#6e7a8a' }}>
                 {s.desc}
               </p>
             </motion.div>

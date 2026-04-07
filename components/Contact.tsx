@@ -8,7 +8,7 @@ export default function Contact() {
       id="contact"
       data-section="contact"
       className="px-8 md:px-16 py-24"
-      style={{ borderTop: '1px solid #222' }}
+      style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
     >
       <div className="max-w-5xl">
 
@@ -17,7 +17,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#555' }}
+          style={{ color: '#4c566a' }}
         >
           Contact
         </motion.p>
@@ -29,7 +29,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="font-black tracking-tight"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f5f2ee' }}
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)', color: '#f0eeff' }}
           >
             Let&apos;s talk.
           </motion.h2>
@@ -41,7 +41,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-lg mb-16 max-w-lg"
-          style={{ color: '#777' }}
+          style={{ color: '#9aa3b8' }}
         >
           Open to Senior CSM, Strategic Account Management, and Customer Success
           Lead roles in enterprise SaaS. Based in Toronto — Canadian PR.
@@ -53,7 +53,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex flex-col gap-0"
-          style={{ borderTop: '1px solid #222' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
           {[
             {
@@ -84,29 +84,36 @@ export default function Contact() {
             <motion.a
               key={c.label}
               href={c.href}
-              target={c.href.startsWith('mailto') ? undefined : '_blank'}
+              target={c.href.startsWith('mailto') || c.href.startsWith('tel') ? undefined : '_blank'}
               rel="noopener noreferrer"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 + i * 0.07 }}
               className="flex items-center justify-between py-6 group"
-              style={{ borderBottom: '1px solid #222' }}
+              style={{
+                borderBottom: '1px solid rgba(255,255,255,0.07)',
+                transition: 'padding-left 0.2s ease',
+              }}
               onMouseEnter={e => (e.currentTarget.style.paddingLeft = '8px')}
               onMouseLeave={e => (e.currentTarget.style.paddingLeft = '0px')}
             >
-              <div style={{ transition: 'padding 0.2s' }}>
-                <span className="text-xs uppercase tracking-widest block mb-1" style={{ color: '#555' }}>
+              <div>
+                <span className="text-xs uppercase tracking-widest block mb-1" style={{ color: '#4c566a' }}>
                   {c.label}
                 </span>
-                <span className="text-base font-medium" style={{ color: '#f5f2ee' }}>
+                <span className="text-base font-medium" style={{ color: '#f0eeff' }}>
                   {c.value}
                 </span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-xs hidden md:block" style={{ color: '#444' }}>{c.note}</span>
-                <span style={{ color: '#555', transition: 'color 0.2s', fontSize: '1.2rem' }}
-                  className="group-hover:text-[#f5f2ee]">→</span>
+                <span className="text-xs hidden md:block" style={{ color: '#4c566a' }}>{c.note}</span>
+                <span
+                  style={{ color: '#4c566a', fontSize: '1.2rem', transition: 'color 0.2s' }}
+                  className="group-hover:!text-[#29d4ff]"
+                >
+                  →
+                </span>
               </div>
             </motion.a>
           ))}
@@ -124,9 +131,17 @@ export default function Contact() {
             href="/harsh-shah-resume.pdf"
             download="Harsh_Shah_Resume.pdf"
             className="inline-flex items-center gap-3 px-6 py-3 text-sm font-medium transition-all duration-200"
-            style={{ background: '#f5f2ee', color: '#111' }}
-            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = '#fff')}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = '#f5f2ee')}
+            style={{
+              border: '1px solid rgba(41,212,255,0.3)',
+              color: '#29d4ff',
+              background: 'transparent',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(41,212,255,0.08)'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'transparent'
+            }}
           >
             Download Resume ↓
           </a>
@@ -139,12 +154,12 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-24 flex flex-col md:flex-row justify-between gap-4"
-          style={{ borderTop: '1px solid #222', paddingTop: '2rem' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2rem' }}
         >
-          <span className="text-sm" style={{ color: '#333' }}>
+          <span className="text-sm" style={{ color: '#4c566a' }}>
             Harsh Shah — Customer Success Manager
           </span>
-          <span className="text-sm" style={{ color: '#333' }}>
+          <span className="text-sm" style={{ color: '#4c566a' }}>
             Toronto · Canadian PR · Open to work
           </span>
         </motion.div>

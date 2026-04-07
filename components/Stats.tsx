@@ -72,7 +72,7 @@ export default function Stats() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#aaa' }}
+          style={{ color: '#4c566a' }}
         >
           By the numbers
         </motion.p>
@@ -88,12 +88,12 @@ export default function Stats() {
             >
               <p
                 className="font-black leading-none mb-2 tabular-nums"
-                style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: '#111' }}
+                style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', color: '#ffffff' }}
               >
                 {stat.display(counts[i])}
               </p>
-              <p className="text-sm font-medium" style={{ color: '#333' }}>{stat.label}</p>
-              <p className="text-xs mt-0.5" style={{ color: '#999' }}>{stat.sub}</p>
+              <p className="text-sm font-medium" style={{ color: '#9aa3b8' }}>{stat.label}</p>
+              <p className="text-xs mt-0.5" style={{ color: '#4c566a' }}>{stat.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -105,9 +105,9 @@ export default function Stats() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-14"
-          style={{ borderTop: '1px solid #d4cfc9', paddingTop: '2.5rem' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2.5rem' }}
         >
-          <p className="text-xs tracking-[0.3em] uppercase mb-5" style={{ color: '#aaa' }}>
+          <p className="text-xs tracking-[0.3em] uppercase mb-5" style={{ color: '#4c566a' }}>
             Certifications
           </p>
           <div className="flex flex-wrap gap-3">
@@ -120,7 +120,11 @@ export default function Stats() {
               <span
                 key={cert}
                 className="text-sm font-medium px-4 py-2"
-                style={{ background: '#edeae5', border: '1px solid #d4cfc9', color: '#444' }}
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(41,212,255,0.18)',
+                  color: '#9aa3b8',
+                }}
               >
                 {cert}
               </span>
@@ -135,17 +139,17 @@ export default function Stats() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-12"
-          style={{ borderTop: '1px solid #d4cfc9', paddingTop: '3rem' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '3rem' }}
         >
           <div>
-            <p className="text-lg leading-relaxed" style={{ color: '#333' }}>
+            <p className="text-lg leading-relaxed" style={{ color: '#9aa3b8' }}>
               I&apos;m a CSM who doesn&apos;t just manage accounts. I{' '}
-              <em>own</em> outcomes. My job is to make sure customers actually
+              <em style={{ color: '#f0eeff' }}>own</em> outcomes. My job is to make sure customers actually
               get what they paid for, and then some.
             </p>
           </div>
           <div>
-            <p className="text-lg leading-relaxed" style={{ color: '#333' }}>
+            <p className="text-lg leading-relaxed" style={{ color: '#9aa3b8' }}>
               I&apos;ve spent six years translating customer pain into product
               improvements, running QBRs that move the needle, and building
               the kind of trust that makes renewals a formality.
@@ -154,7 +158,7 @@ export default function Stats() {
               href="/harsh-shah-resume.pdf"
               download="Harsh_Shah_Resume.pdf"
               className="inline-flex items-center gap-2 mt-6 text-sm font-medium link-hover"
-              style={{ color: '#111' }}
+              style={{ color: '#29d4ff' }}
             >
               Download resume ↓
             </a>
