@@ -72,7 +72,7 @@ export default function Stats() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           By the numbers
         </motion.p>
@@ -93,7 +93,7 @@ export default function Stats() {
                 {stat.display(counts[i])}
               </p>
               <p className="text-sm font-medium" style={{ color: '#9aa3b8' }}>{stat.label}</p>
-              <p className="text-xs mt-0.5" style={{ color: '#4c566a' }}>{stat.sub}</p>
+              <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>{stat.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -107,7 +107,7 @@ export default function Stats() {
           className="mt-14"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2.5rem' }}
         >
-          <p className="text-xs tracking-[0.3em] uppercase mb-5" style={{ color: '#4c566a' }}>
+          <p className="text-xs tracking-[0.3em] uppercase mb-5" style={{ color: '#29d4ff' }}>
             Certifications
           </p>
           <div className="flex flex-wrap gap-3">

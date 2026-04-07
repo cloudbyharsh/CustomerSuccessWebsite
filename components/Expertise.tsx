@@ -52,7 +52,7 @@ export default function Expertise() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           What I do
         </motion.p>

@@ -27,7 +27,7 @@ export default function Tools() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           Stack
         </motion.p>
@@ -72,7 +72,7 @@ export default function Tools() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16"
         >
-          <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ color: '#4c566a' }}>Where I&apos;ve worked</p>
+          <p className="text-xs tracking-[0.3em] uppercase mb-6" style={{ color: '#29d4ff' }}>Where I&apos;ve worked</p>
           <div className="flex flex-wrap gap-4">
             {companies.map(c => (
               <span

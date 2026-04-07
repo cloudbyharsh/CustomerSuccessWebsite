@@ -17,7 +17,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           Contact
         </motion.p>
@@ -99,7 +99,7 @@ export default function Contact() {
               onMouseLeave={e => (e.currentTarget.style.paddingLeft = '0px')}
             >
               <div>
-                <span className="text-xs uppercase tracking-widest block mb-1" style={{ color: '#4c566a' }}>
+                <span className="text-xs uppercase tracking-widest block mb-1" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   {c.label}
                 </span>
                 <span className="text-base font-medium" style={{ color: '#f0eeff' }}>
@@ -107,9 +107,9 @@ export default function Contact() {
                 </span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-xs hidden md:block" style={{ color: '#4c566a' }}>{c.note}</span>
+                <span className="text-xs hidden md:block" style={{ color: 'rgba(255,255,255,0.4)' }}>{c.note}</span>
                 <span
-                  style={{ color: '#4c566a', fontSize: '1.2rem', transition: 'color 0.2s' }}
+                  style={{ color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', transition: 'color 0.2s' }}
                   className="group-hover:!text-[#29d4ff]"
                 >
                   →
@@ -156,10 +156,10 @@ export default function Contact() {
           className="mt-24 flex flex-col md:flex-row justify-between gap-4"
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2rem' }}
         >
-          <span className="text-sm" style={{ color: '#4c566a' }}>
+          <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Harsh Shah — Customer Success Manager
           </span>
-          <span className="text-sm" style={{ color: '#4c566a' }}>
+          <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Toronto · Canadian PR · Open to work
           </span>
         </motion.div>

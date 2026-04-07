@@ -40,9 +40,9 @@ export default function Nav() {
             key={l.href}
             href={l.href}
             className="link-hover text-sm"
-            style={{ color: '#4c566a', transition: 'color 0.2s' }}
+            style={{ color: 'rgba(255,255,255,0.55)', transition: 'color 0.2s' }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#f0eeff')}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4c566a')}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)')}
           >
             {l.label}
           </a>

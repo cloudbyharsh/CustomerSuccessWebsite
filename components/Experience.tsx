@@ -55,7 +55,7 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           Work
         </motion.p>
@@ -92,7 +92,7 @@ export default function Experience() {
               >
                 <span
                   className="font-black text-lg"
-                  style={{ color: active === i ? '#29d4ff' : '#4c566a' }}
+                  style={{ color: active === i ? '#29d4ff' : 'rgba(255,255,255,0.4)' }}
                 >
                   {j.year}
                 </span>
@@ -110,7 +110,7 @@ export default function Experience() {
                 exit={{ opacity: 0, x: -8 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#4c566a' }}>
+                <p className="text-xs uppercase tracking-widest mb-2" style={{ color: 'rgba(255,255,255,0.4)' }}>
                   {jobs[active].location}
                 </p>
                 <h3 className="font-bold text-2xl mb-1" style={{ color: '#f0eeff' }}>

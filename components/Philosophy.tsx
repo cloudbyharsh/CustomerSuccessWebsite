@@ -35,7 +35,7 @@ export default function Philosophy() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           How I work
         </motion.p>
@@ -86,7 +86,7 @@ export default function Philosophy() {
             &ldquo;The most underrated skill in customer success is not your QBR deck or your
             health score formula. It is knowing when to put down the agenda and just listen.&rdquo;
           </p>
-          <cite className="text-sm not-italic" style={{ color: '#4c566a' }}>
+          <cite className="text-sm not-italic" style={{ color: 'rgba(255,255,255,0.4)' }}>
             — Harsh Shah, LinkedIn
           </cite>
         </motion.blockquote>

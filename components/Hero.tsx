@@ -25,7 +25,7 @@ export default function Hero() {
             Harsh Shah
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-xs tracking-[0.25em] uppercase" style={{ color: '#4c566a' }}>
+            <span className="text-xs tracking-[0.25em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
               Currently
             </span>
             <span className="text-xs" style={{ color: '#6e7a8a' }}>
@@ -68,7 +68,7 @@ export default function Hero() {
           <div className="flex flex-col gap-4 md:items-end flex-shrink-0">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-sm" style={{ color: '#4c566a' }}>Open to work — Toronto</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>Open to work — Toronto</span>
             </div>
             <div className="flex items-center gap-6">
               <a
@@ -83,9 +83,9 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="link-hover text-sm"
-                style={{ color: '#4c566a' }}
+                style={{ color: 'rgba(255,255,255,0.4)' }}
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#f0eeff')}
-                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#4c566a')}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.4)')}
               >
                 LinkedIn ↗
               </a>

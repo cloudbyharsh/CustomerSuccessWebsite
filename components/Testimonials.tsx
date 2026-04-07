@@ -44,7 +44,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="text-xs tracking-[0.3em] uppercase mb-12"
-          style={{ color: '#4c566a' }}
+          style={{ color: '#29d4ff' }}
         >
           What managers say
         </motion.p>
@@ -76,8 +76,8 @@ export default function Testimonials() {
               <div className="md:col-span-1 flex flex-col gap-1">
                 <p className="text-sm font-bold" style={{ color: '#f0eeff' }}>{t.name}</p>
                 <p className="text-xs leading-snug" style={{ color: '#6e7a8a' }}>{t.title}</p>
-                <p className="text-xs mt-2" style={{ color: '#4c566a' }}>{t.relationship}</p>
-                <p className="text-xs" style={{ color: '#4c566a' }}>{t.date}</p>
+                <p className="text-xs mt-2" style={{ color: 'rgba(255,255,255,0.4)' }}>{t.relationship}</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>{t.date}</p>
               </div>
 
               <div className="md:col-span-4">
@@ -98,7 +98,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-10 text-xs"
-          style={{ color: '#4c566a' }}
+          style={{ color: 'rgba(255,255,255,0.4)' }}
         >
           All recommendations verified on{' '}
           <a
